@@ -9,7 +9,7 @@ class ColorPalette extends StatelessWidget {
   }) : super(key: key);
 
   // atributos de la clase, por ejemplo
-  //final String baseColor;
+  final String baseColor;
 
   // también se puede tener como un atributo un callback, necesiario ya que es un
   // widget sin estado, por ejemplo
@@ -20,9 +20,12 @@ class ColorPalette extends StatelessWidget {
     // padding para crear espacio alrededor del widget
     return Padding(
       padding: const EdgeInsets.all(8.0),
+      row(children:[
+        Expanded(
+          child: GestureDetector(
+            child: Container(
+              height: 100, color: ColorUtils.FromHex(baseColor)))
+            ]))
       // vamos a mostrar los elementos en un row
-      child: Text(
-          'Row -> [Expanded(flex: 4,GestureDetector(Container(height: 100, color: ColorUtils.FromHex(baseColor))) )]'),
-    );
-  }
+}
 }
